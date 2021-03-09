@@ -1,6 +1,8 @@
 const express = require('express'); 
 const router = express.Router(); 
 
+const mysql = require('../mysql').pool;
+
 router.get('/', (req, res, next) => {
      res.status(200).send({
 
@@ -16,16 +18,18 @@ router.post('/', (req, res, next) => {
      });
 }); 
 
+
+
 router.get('/:id_aluno', (req,res, next) => {
      const id = req.params.id_aluno
 
-     if (id ==0){
-    res.status(200).send({
-     mensagem: 'Usando o Get de um aluno',
-     id: id
+      if (id =>0){
+      res.status(200).send({
+      mensagem: 'Usando o Get de um aluno',
+      id: id
 });
 } else {
-     res.status(200).send({
+      res.status(200).send({
         mensagem:'Id passado'
      });
 }
