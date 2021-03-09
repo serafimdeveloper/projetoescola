@@ -16,7 +16,7 @@ router.post('/', (req, res, next) => {
      });
 }); 
 
-router.get('/:id_aluno', (req,res, next) => {
+router.get('/:id_matricula', (req,res, next) => {
      const id = req.params.id_aluno
 
      if (id ==0){
