@@ -1,14 +1,13 @@
 const {Model, DataTypes } = require ('sequelize');
 const sequelize = require('../mysql');
 
-class aluno extends Model {
+class turma extends Model {
 
      static init (sequelize) {
 
         super.init({
-           nome: DataTypes.STRING,
-           dataNascimento: DataTypes.STRING,
-           cpf: DataTypes.STRING,
+           nometurma: DataTypes.STRING,
+           serie: DataTypes.STRING
         }, {
             sequelize
         })
@@ -16,4 +15,4 @@ class aluno extends Model {
         }
      }
 
-module.exports = aluno;
+module.exports = turma;

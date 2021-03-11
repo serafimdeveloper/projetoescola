@@ -1,6 +1,6 @@
 const express = require('express'); 
 const router = express.Router(); 
-const Aluno = require('../models/Aluno');
+const aluno = require('../models/aluno');
 
 const mysql = require('../mysql').pool;
 
@@ -10,7 +10,7 @@ router.get('/', (req, res, next) => {
 
    res.status(200).send({
       
-     mensagem: 'Usando Get dentro da rota de produtos'
+     mensagem: 'Usando Get 200 alunos'
  });
 
 });
@@ -18,18 +18,18 @@ router.get('/', (req, res, next) => {
 router.post('/', (req, res, next) => {
 
      res.status(201).send({
-        mensagem: 'Usando o POST dentro da rota de produtos'
+        mensagem: 'Usando o POST dentro da rota de alunos'
      });
 }); 
 
 
 
 router.get('/:id_aluno', (req,res, next) => {
-     const id = req.params.id_aluno
+     const id = req.params.id
 
       if (id =>0){
       res.status(200).send({
-      mensagem: 'Usando o Get de um aluno',
+      mensagem: 'Usando o Get de um alunos',
       id: id
 });
 } else {
@@ -42,7 +42,7 @@ router.get('/:id_aluno', (req,res, next) => {
 router.patch ('/', (req, res, next) => {
 
      res.status(201).send({
-        mensagem:'usando PACTH dentro da rota'
+        mensagem:'usando PACTH dentro da aluno'
      });
 });
 
@@ -50,7 +50,7 @@ router.patch ('/', (req, res, next) => {
 router.delete ('/', (req, res, next) => {
 
      res.status(201).send({
-        mensagem:'usando DELETE dentro da rota'
+        mensagem:'usando DELETE dentro da aluno'
      });
 });
 

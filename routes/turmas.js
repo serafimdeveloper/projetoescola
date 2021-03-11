@@ -1,5 +1,8 @@
 const express = require('express'); 
 const router = express.Router(); 
+const turma = require('../models/turma');
+const mysql = require('../mysql').pool; 
+
 
 router.get('/', (req, res, next) => {
       res.status(200).send({

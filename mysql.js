@@ -1,20 +1,14 @@
-const Sequelize = require  ('sequelize'); 
+const mysql = require ('mysql');
 
-const sequelize = new Sequelize('dbescola', 'escola','tecalpha',{
+var pool = mysql.createPool({
+  
+  "user": process.env.MYSQL_USER,
+  "passaword": process.env.MYSQL_PASSWORD,
+  "database" : process.env.MYSQL_DATABASE, 
+  "host": process.env.MYSQL_HOST,
+  "port": process.env.MYSQL_PORT
 
-   host:'localhost', 
-   dialect:'mysql'
 });
 
 
-sequelize
-  .authenticate()
-  .then((response) => {
-    console.log(response);
-    console.log('Connection has been established successfully.');
-  })
-  .catch(err => {
-    console.error('Unable to connect to the database:', err);
-  });
-
-module.exports = sequelize;
+exports.pool = pool;
