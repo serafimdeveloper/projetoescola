@@ -1,13 +1,17 @@
 const express = require('express'); 
 const router = express.Router(); 
+const Aluno = require('../models/Aluno');
 
 const mysql = require('../mysql').pool;
 
-router.get('/', (req, res, next) => {
-     res.status(200).send({
 
+
+router.get('/', (req, res, next) => {
+
+   res.status(200).send({
+      
      mensagem: 'Usando Get dentro da rota de produtos'
-     });
+ });
 
 });
 
@@ -49,5 +53,6 @@ router.delete ('/', (req, res, next) => {
         mensagem:'usando DELETE dentro da rota'
      });
 });
+
 
 module.exports = router;
