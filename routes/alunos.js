@@ -1,17 +1,19 @@
 const express = require('express'); 
 const router = express.Router(); 
-const aluno = require('../models/aluno');
-
-const mysql = require('../mysql').pool;
+const db = require('../models');
 
 
-
-router.get('/', (req, res, next) => {
-
-   res.status(200).send({
-      
-     mensagem: 'Usando Get 200 alunos'
- });
+router.get('/', async (req, res, next) => 
+{
+   try {
+      const alunos = await db.aluno.findAll();
+      res.status(200).send({
+        alunos,
+        mensagem: 'Usando Get 200 alunos'
+    });
+   } catch (erro) {
+      console.log('erro', erro);
+   }
 
 });
 

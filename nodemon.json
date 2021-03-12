@@ -1,8 +1,8 @@
 {
     "env": {
 
-        "MYSQL_USER":"escola",
-        "MSQL_PASSWORD":"tecalpha",
+        "MYSQL_USER":"root",
+        "MSQL_PASSWORD":"",
         "MYSQL_DATABASE":"dbescola",
         "MYSQL_HOST":"localhost",
         "MYSQL_PORT": 3306

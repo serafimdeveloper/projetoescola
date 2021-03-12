@@ -1,23 +1,8 @@
-
-const Sequelize = require("sequelize");
-const sequelize = new Sequelize(dbescola, escola, tecalpha, {
-  host: localhost,
-  dialect: mysql,
-  operatorsAliases: false,
-
-  pool: {
-    max: dbConfig.pool.max,
-    min: dbConfig.pool.min,
-    acquire: dbConfig.pool.acquire,
-    idle: dbConfig.pool.idle
-  }
-});
+const sequelize = require("../db");
 
 const db = {};
-
-db.Sequelize = Sequelize;
-db.sequelize = sequelize;
-
-db.tutorials = require("./aluno.model.js")(sequelize, Sequelize);
-
+db.aluno = require("./aluno");
+db.matricula = require('./matricula');
+db.turma = require('./turma');
+db.frequencia = require('./frequencia');
 module.exports = db;

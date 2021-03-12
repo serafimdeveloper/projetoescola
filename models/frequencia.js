@@ -1,17 +1,18 @@
 const {Model, DataTypes } = require ('sequelize');
-const sequelize = require('../mysql');
+const sequelize = require('../db');
 
-class frequencia extends Model {
-
-     static init (sequelize) {
-
+class Frequencia extends Model {
+    static init (sequelize) {
         super.init({ 
            
         }, {
-            sequelize
+            sequelize,
+            modelName: 'frequencia',
+            createdAt: false,
+            updatedAt: false
         })
-          
-        }
-     }
+        return this;
+    }
+}
 
-module.exports = frequencia;
+module.exports = Frequencia.init(sequelize);

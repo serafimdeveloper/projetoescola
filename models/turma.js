@@ -1,18 +1,20 @@
-const {Model, DataTypes } = require ('sequelize');
-const sequelize = require('../mysql');
+const { Model, DataTypes } = require ('sequelize');
+const sequelize = require('../db');
 
-class turma extends Model {
+class Turma extends Model {
+   static init (sequelize) {
+      super.init({
+         nometurma: DataTypes.STRING,
+         serie: DataTypes.STRING
+      }, {
+         sequelize,
+         modelName: 'turma',
+         createdAt: false,
+         updatedAt: false
+      });
+      return this;
+         
+   }
+}
 
-     static init (sequelize) {
-
-        super.init({
-           nometurma: DataTypes.STRING,
-           serie: DataTypes.STRING
-        }, {
-            sequelize
-        })
-          
-        }
-     }
-
-module.exports = turma;
+module.exports = Turma.init(sequelize);

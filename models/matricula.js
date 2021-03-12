@@ -1,18 +1,19 @@
-const {Model, DataTypes } = require ('sequelize');
-const sequelize = require('../mysql');
+const { Model, DataTypes } = require ('sequelize');
+const sequelize = require('../db');
 
-class matricula extends Model {
+class Matricula extends Model {
+    static init (sequelize) {
+      super.init({
+        ano: DataTypes.STRING,
+        status: DataTypes.STRING
+      }, {
+          sequelize,
+          modelName: 'matricula',
+          createdAt: false,
+          updatedAt: false
+      });
+      return this;
+    }
+}
 
-     static init (sequelize) {
-
-        super.init({
-          ano: DataTypes.STRING,
-          status: DataTypes.STRING
-        }, {
-            sequelize
-        })
-          
-        }
-     }
-
-module.exports = matricula;
+module.exports = Matricula.init(sequelize);
